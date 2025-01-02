@@ -1,9 +1,10 @@
 import SocialLinks from "@/components/SocialLinks";
+import WorkExperiences from "@/components/WorkExperiences";
 
 export default function Home() {
 	return (
-		<div>
-			<section className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+		<div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+			<section id="home" className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
 				<div>
 					<h1 className="text-xl sm:text-2xl md:text-3xl">
 						<span className="font-display font-medium">Hi, I am&nbsp;</span>
@@ -41,6 +42,10 @@ export default function Home() {
 					</p>
 				</article>
 				<SocialLinks />
+			</section>
+
+			<section id="work_experience" className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+				<WorkExperiences />
 			</section>
 		</div>
 	);

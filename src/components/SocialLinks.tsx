@@ -30,7 +30,7 @@ const SocialLinks = () => {
 			{links.map((link) => (
 				<li key={link.icon}>
 					<a href={link.url} target="_blank" rel="noreferrer">
-						<button className="flex items-center space-x-2 rounded-full border-[1px] border-mute/20 shadow-sm shadow-mute/20 hover:shadow-mute/40 transition-all duration-200 hover:bg-mute/10  h-9 px-4">
+						<button className="c-btn">
 							<Image
 								priority
 								width={16}
