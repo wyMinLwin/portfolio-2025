@@ -1,10 +1,14 @@
+import Projects from "@/components/Projects";
 import SocialLinks from "@/components/SocialLinks";
 import WorkExperiences from "@/components/WorkExperiences";
 
 export default function Home() {
 	return (
 		<div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
-			<section id="home" className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+			<section
+				id="home"
+				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+			>
 				<div>
 					<h1 className="text-xl sm:text-2xl md:text-3xl">
 						<span className="font-display font-medium">Hi, I am&nbsp;</span>
@@ -44,8 +48,18 @@ export default function Home() {
 				<SocialLinks />
 			</section>
 
-			<section id="work_experience" className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+			<section
+				id="work_experience"
+				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+			>
 				<WorkExperiences />
+			</section>
+
+			<section
+				id="projects"
+				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+			>
+				<Projects />
 			</section>
 		</div>
 	);

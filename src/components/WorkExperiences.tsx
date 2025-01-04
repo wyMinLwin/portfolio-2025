@@ -49,7 +49,7 @@ const WorkExperiences = () => {
 						</h3>
 						<p className="text-black/70 text-sm sm:text-base">
 							{experience.startDate} &mdash; {experience.endDate}
-						</p>
+						</p> 
 						<p className="text-base sm:text-lg">{experience.description}</p>
 						<div className="flex flex-wrap space-x-2">
 							{experience.stacks.map((stack, index) => (
