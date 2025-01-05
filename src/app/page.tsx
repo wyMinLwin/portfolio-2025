@@ -1,66 +1,92 @@
+"use client";
+import About from "@/components/About";
 import Projects from "@/components/Projects";
-import SocialLinks from "@/components/SocialLinks";
 import WorkExperiences from "@/components/WorkExperiences";
+import { useEffect, useState } from "react";
+import { InView } from "react-intersection-observer";
 
 export default function Home() {
-	return (
-		<div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
-			<section
-				id="home"
-				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
-			>
-				<div>
-					<h1 className="text-xl sm:text-2xl md:text-3xl">
-						<span className="font-display font-medium">Hi, I am&nbsp;</span>
-						<span className="text-2xl tracking-wide font-semibold sm:text-3xl md:text-4xl">
-							Wai Yan Min Lwin
-						</span>
-					</h1>
-					<p className="text-3xl tracking-wide sm:text-5xl font-bold w-fit bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-red-400">
-						Software Engineer
-					</p>
-				</div>
-				<article className="text-base sm:text-lg tracking-wide space-y-2">
-					<p>
-						A passionate and proven <strong>Software Engineer</strong>{" "}
-						specializing in building
-						<strong> efficient</strong>, <strong>scalable</strong>, and{" "}
-						<strong>impactful software solutions</strong>. My journey in tech is
-						driven by a commitment to <strong>innovation</strong> and a love for
-						solving
-						<strong> complex problems</strong> with{" "}
-						<strong>elegant code</strong>. Over the years, I&apos;ve worked
-						across <strong>startups</strong> and{" "}
-						<strong>established organizations</strong>. I&apos;ve consistently
-						delivered projects that blend <strong>functionality</strong> with
-						<strong> seamless user experiences</strong>.
-					</p>
+    const [threshold, setThreshold] = useState(0.5);
 
-					<p>
-						When I&apos;m not immersed in development, you&apos;ll find me
-						<strong> strategizing</strong> over a game of <strong>chess</strong>
-						, <strong>diving</strong> into a good <strong>book</strong>, or
-						exploring new ideas in the <strong>gaming world</strong>. Let&apos;s
-						connect and turn
-						<strong> great ideas</strong> into <strong>reality</strong>!
-					</p>
-				</article>
-				<SocialLinks />
-			</section>
+    useEffect(() => {
+        const updateThreshold = () => {
+            if (window.innerWidth < 640) {
+                // Mobile view
+                setThreshold(0.3);
+            } else if (window.innerWidth < 1024) {
+                // Tablet view
+                setThreshold(0.5);
+            } else if (window.innerWidth < 1280) {
+                // Laptop view
+                setThreshold(0.58);
+            } else {
+                // Desktop view
+                setThreshold(0.62);
+            }
+        };
 
-			<section
-				id="work_experience"
-				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
-			>
-				<WorkExperiences />
-			</section>
+        // Set the initial threshold
+        updateThreshold();
 
-			<section
-				id="projects"
+        // Update the threshold on window resize
+        window.addEventListener("resize", updateThreshold);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", updateThreshold);
+        };
+    }, []);
+    return (
+        <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+            {/* <section
+				id="about"
+				ref={about.ref}
 				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+
 			>
-				<Projects />
-			</section>
-		</div>
-	);
+				<About />
+			</section> */}
+            <InView
+                threshold={threshold}
+                as={"section"}
+                id="about"
+                className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+                onChange={(inView) => {
+                    if (inView) {
+                        console.log("About in view:", "About");
+                    }
+                }}
+            >
+                <About />
+            </InView>
+
+            <InView
+                threshold={threshold}
+                as={"section"}
+                id="work_experience"
+                className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+                onChange={(inView) => {
+                    if (inView) {
+                        console.log("About in view:", "Work Experience");
+                    }
+                }}
+            >
+                <WorkExperiences />
+            </InView>
+
+            <InView
+                threshold={threshold}
+                as={"section"}
+                id="projects"
+                className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+                onChange={(inView) => {
+                    if (inView) {
+                        console.log("About in view:", "Projects");
+                    }
+                }}
+            >
+                <Projects />
+            </InView>
+        </div>
+    );
 }

@@ -43,7 +43,7 @@ const Projects = () => {
 						className="group space-y-1 p-4 border-[1px] transition-all duration-200 border-mute/20 rounded-lg shadow-sm shadow-mute/10 bg-white hover:bg-[#fafaf9]"
 					>
 						<a href={project.url} target="_blank" rel="noreferrer">
-							<h3 className="text-lg sm:text-xl font-semibold space-x-1 tracking-wide flex ">
+							<h3 className="text-lg sm:text-xl font-semibold space-x-1 tracking-wide flex items-center ">
 								<span>{project.name}</span>
 								<Image
 									priority
@@ -51,7 +51,7 @@ const Projects = () => {
 									height={18}
 									src="/external-link.svg"
 									alt="external-link"
-                                    className="group-hover:scale-100 scale-0 transition-all duration-300" 
+                                    className="group-hover:opacity-100 opacity-0 transition-all duration-300 w-[20px] h-[20px]" 
 								/>
 							</h3>
 							<p className="text-base sm:text-lg">{project.description}</p>

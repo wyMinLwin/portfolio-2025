@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 			className={`${playfairDisplay.variable} ${sourceSans3.variable}`}
 		>
 			<body>
-				<main className="relative z-10 container mx-auto px-10 sm:px-20 md:px-40 lg:px-60 xl:px-80 py-10 sm:py-16 md:py-28">
+				<main className="relative z-10 container mx-auto px-5 sm:px-20 md:px-40 lg:px-60 xl:px-80 py-10 sm:py-16 md:py-28">
 					{children}
 				</main>
 				<BackgroundUI />

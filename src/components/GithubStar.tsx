@@ -36,7 +36,7 @@ const GithubStar = ({ repo }: { repo: string }) => {
 			className="px-2 mt-1 flex justify-center items-center space-x-1 hover:text-primary"
 		>
 			{isLoading ? "-" : <span className="text-lg">{stars}</span>}
-			<Image src={"./star.svg"} alt="star image" width={20} height={20} />
+			<Image priority src={"./star.svg"} alt="star image" width={20} height={20} />
 		</button>
 	);
 };
