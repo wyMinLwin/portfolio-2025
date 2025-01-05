@@ -1,12 +1,15 @@
 "use client";
 import About from "@/components/About";
+import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import WorkExperiences from "@/components/WorkExperiences";
+import {} from "next/navigation";
 import { useEffect, useState } from "react";
 import { InView } from "react-intersection-observer";
 
 export default function Home() {
     const [threshold, setThreshold] = useState(0.5);
+    const [currentPath, setCurrentPath] = useState("about");
 
     useEffect(() => {
         const updateThreshold = () => {
@@ -30,6 +33,11 @@ export default function Home() {
 
         // Update the threshold on window resize
         window.addEventListener("resize", updateThreshold);
+        if (window.location.hash) {
+            setCurrentPath(window.location.hash.slice(1));
+        } else {
+            setCurrentPath("about");
+        }
 
         // Cleanup event listener on component unmount
         return () => {
@@ -37,8 +45,10 @@ export default function Home() {
         };
     }, []);
     return (
-        <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
-            {/* <section
+        <>
+            <Navbar currentPath={currentPath} />
+            <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
+                {/* <section
 				id="about"
 				ref={about.ref}
 				className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
@@ -46,47 +56,48 @@ export default function Home() {
 			>
 				<About />
 			</section> */}
-            <InView
-                threshold={threshold}
-                as={"section"}
-                id="about"
-                className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
-                onChange={(inView) => {
-                    if (inView) {
-                        console.log("About in view:", "About");
-                    }
-                }}
-            >
-                <About />
-            </InView>
+                <InView
+                    threshold={threshold}
+                    as={"section"}
+                    id="about"
+                    className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+                    onChange={(inView) => {
+                        if (inView) {
+                            setCurrentPath("about");
+                        }
+                    }}
+                >
+                    <About />
+                </InView>
 
-            <InView
-                threshold={threshold}
-                as={"section"}
-                id="work_experience"
-                className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
-                onChange={(inView) => {
-                    if (inView) {
-                        console.log("About in view:", "Work Experience");
-                    }
-                }}
-            >
-                <WorkExperiences />
-            </InView>
+                <InView
+                    threshold={threshold}
+                    as={"section"}
+                    id="experiences"
+                    className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+                    onChange={(inView) => {
+                        if (inView) {
+                            setCurrentPath("experiences");
+                        }
+                    }}
+                >
+                    <WorkExperiences />
+                </InView>
 
-            <InView
-                threshold={threshold}
-                as={"section"}
-                id="projects"
-                className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
-                onChange={(inView) => {
-                    if (inView) {
-                        console.log("About in view:", "Projects");
-                    }
-                }}
-            >
-                <Projects />
-            </InView>
-        </div>
+                <InView
+                    threshold={threshold}
+                    as={"section"}
+                    id="projects"
+                    className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16"
+                    onChange={(inView) => {
+                        if (inView) {
+                            setCurrentPath("projects");
+                        }
+                    }}
+                >
+                    <Projects />
+                </InView>
+            </div>
+        </>
     );
 }
