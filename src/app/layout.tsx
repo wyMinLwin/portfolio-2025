@@ -33,8 +33,9 @@ export const metadata: Metadata = {
         images: {
             url: "/me.jpg",
             width: 300,
-            height: 250,
+            height: 300,
         },
+        siteName: "Wai Yan Min Lwin",
     },
     twitter: {
         title: "Wai Yan Min Lwin - Software Engineer",
@@ -45,10 +46,17 @@ export const metadata: Metadata = {
             width: 300,
             height: 300,
         },
+        card: "summary",
     },
     verification: {
         google: "R7Cgx_vuZMmn-j7KBSRO8LKGGg49PDVG3JlXzzfm1TI",
     },
+    robots: { index: true, follow: true },
+    category: "Software Engineer",
+    alternates: {
+        canonical: "https://waiyanminlwin.vercel.app/",
+    },
+    // This explicitly allows indexing
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
