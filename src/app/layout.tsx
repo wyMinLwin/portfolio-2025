@@ -3,7 +3,6 @@ import "./globals.css";
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import BackgroundUI from "../components/BackgroundUI";
 import { Metadata } from "next";
-import Head from "next/head";
 
 const playfairDisplay = Playfair_Display({
     subsets: ["latin"],
@@ -47,7 +46,9 @@ export const metadata: Metadata = {
             height: 300,
         },
     },
-    robots: "index, follow",
+    verification: {
+        google: "R7Cgx_vuZMmn-j7KBSRO8LKGGg49PDVG3JlXzzfm1TI",
+    },
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -56,34 +57,23 @@ export default function Layout({ children }: { children: ReactNode }) {
             lang="en"
             className={`${playfairDisplay.variable} ${sourceSans3.variable}`}
         >
-            <Head>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "Person",
-                            name: "Wai Yan Min Lwin",
-                            url: "https://waiyanminlwin.vercel.app/",
-                            sameAs: [
-                                "https://www.linkedin.com/in/wyMinLwin",
-                                "https://github.com/wyMinLwin",
-                            ],
-                            jobTitle: "Software Engineer",
-                            worksFor: {
-                                "@type": "Organization",
-                                name: "Future Labs Co., Ltd.",
-                            },
-                        }),
-                    }}
-                />
-            </Head>
             <body>
                 <main className="relative z-10 container mx-auto px-7 sm:px-20 md:px-40 lg:px-60 xl:px-80 py-10 sm:py-16 md:py-28">
                     {children}
                 </main>
                 <BackgroundUI />
                 {/* <Navbar /> */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebSite",
+                            name: "Wai Yan Min Lwin",
+                            url: "https://waiyanminlwin.vercel.app/",
+                        }),
+                    }}
+                />
             </body>
         </html>
     );
