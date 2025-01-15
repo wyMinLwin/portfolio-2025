@@ -86,6 +86,10 @@ export default function Layout({ children }: { children: ReactNode }) {
 								"https://www.linkedin.com/in/wyMinLwin",
                                 "https://instagram.com/clean_freak_scout"
 							],
+							publisher: {
+                                "@type": "Person",
+                                name: "Wai Yan Min Lwin",
+                            },
 						}),
 					}}
 				/>
