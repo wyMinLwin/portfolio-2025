@@ -58,6 +58,10 @@ export const metadata: Metadata = {
 	},
 	manifest: "/manifest.json",
 	publisher: "Wai Yan Min Lwin",
+	authors: {
+		name: "Wai Yan Min Lwin",
+		url: "https://waiyanminlwin.vercel.app/",
+	},
 	// This explicitly allows indexing
 };
 
@@ -84,12 +88,20 @@ export default function Layout({ children }: { children: ReactNode }) {
 							sameAs: [
 								"https://github.com/wyMinLwin",
 								"https://www.linkedin.com/in/wyMinLwin",
-                                "https://instagram.com/clean_freak_scout"
+								"https://instagram.com/clean_freak_scout",
 							],
 							publisher: {
-                                "@type": "Person",
-                                name: "Wai Yan Min Lwin",
-                            },
+								"@type": "Person",
+								name: "Wai Yan Min Lwin",
+								url: "https://waiyanminlwin.vercel.app/", // Add URL here
+							},
+							author: {
+								"@type": "Person",
+								name: "Wai Yan Min Lwin",
+								url: "https://waiyanminlwin.vercel.app/", // Add URL here
+							},
+							description:
+								"I am Wai Yan Min Lwin. I deliver accessible and maintainable products through code.", // Add a description
 						}),
 					}}
 				/>

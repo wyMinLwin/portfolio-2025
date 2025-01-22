@@ -1,5 +1,10 @@
 {
- "name": "App",
+ "name": "Wai Yan Min Lwin",
+  "short_name": "Wai Yan",
+  "description": "I am Wai Yan Min Lwin. I deliver accessible and maintainable products through code.",
+  "start_url": "/",
+  "display": "standalone",
+  "publisher": "Wai Yan Min Lwin",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
