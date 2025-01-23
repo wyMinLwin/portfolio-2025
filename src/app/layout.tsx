@@ -54,14 +54,10 @@ export const metadata: Metadata = {
 	robots: { index: true, follow: true },
 	category: "Software Engineer",
 	alternates: {
-		canonical: "https://waiyanminlwin.vercel.app/",
+		canonical: "https://www.waiyanminlwin.com/",
 	},
 	manifest: "/manifest.json",
 	publisher: "Wai Yan Min Lwin",
-	authors: {
-		name: "Wai Yan Min Lwin",
-		url: "https://waiyanminlwin.vercel.app/",
-	},
 	// This explicitly allows indexing
 };
 
@@ -84,7 +80,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 							"@context": "https://schema.org",
 							"@type": "WebSite",
 							name: "Wai Yan Min Lwin",
-							url: "https://waiyanminlwin.vercel.app/",
+							url: "https://www.waiyanminlwin.com/",
 							sameAs: [
 								"https://github.com/wyMinLwin",
 								"https://www.linkedin.com/in/wyMinLwin",
@@ -93,13 +89,9 @@ export default function Layout({ children }: { children: ReactNode }) {
 							publisher: {
 								"@type": "Person",
 								name: "Wai Yan Min Lwin",
-								url: "https://waiyanminlwin.vercel.app/", // Add URL here
+								url: "https://www.waiyanminlwin.com/", // Add URL here
 							},
-							author: {
-								"@type": "Person",
-								name: "Wai Yan Min Lwin",
-								url: "https://waiyanminlwin.vercel.app/", // Add URL here
-							},
+
 							description:
 								"I am Wai Yan Min Lwin. I deliver accessible and maintainable products through code.", // Add a description
 						}),
