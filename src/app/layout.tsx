@@ -58,7 +58,6 @@ export const metadata: Metadata = {
 	},
 	manifest: "/manifest.json",
 	publisher: "Wai Yan Min Lwin",
-	// This explicitly allows indexing
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -77,23 +76,11 @@ export default function Layout({ children }: { children: ReactNode }) {
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "WebSite",
-							name: "Wai Yan Min Lwin",
-							url: "https://www.waiyanminlwin.com/",
 							sameAs: [
 								"https://github.com/wyMinLwin",
 								"https://www.linkedin.com/in/wyMinLwin",
 								"https://instagram.com/clean_freak_scout",
 							],
-							publisher: {
-								"@type": "Person",
-								name: "Wai Yan Min Lwin",
-								url: "https://www.waiyanminlwin.com/", // Add URL here
-							},
-
-							description:
-								"I am Wai Yan Min Lwin. I deliver accessible and maintainable products through code.", // Add a description
 						}),
 					}}
 				/>
