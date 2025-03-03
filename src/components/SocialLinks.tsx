@@ -40,7 +40,7 @@ const SocialLinks = () => {
 								width={16}
 								height={16}
 								src={`/${link.icon}.svg`}
-								alt={link.icon}
+								alt={link.icon+"-icon"}
 							/>
 							<span>{link.label}</span>
 						</button>
